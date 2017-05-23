@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en", ng-app="scotchTodo">
+<head>
+  <meta charset="UTF-8">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+  <script src="core.js"></script>
+
+  <title>MY APP</title>
+</head>
+<body ng-controller="mainController">
+  May Node and Express be with you.
+
+  <form action="/quotes" method="POST">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="quote" name="quote">
+    <button type="submit">Submit</button>
+  </form>
+  <h2 ng-repeat="q in quotes">
+    {{ q.name }} : {{ q.quote }}
+  </h2>
+
+</body>
+</html>
