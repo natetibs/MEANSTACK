@@ -40,17 +40,70 @@
 <script src="UI/core.js"></script>
 <title>Squanchy</title>
 </head>
+<style>
+body {
+    background-color: #ffffff;
+}
+</style>
 <body ng-controller="mainController">
-  May Node and Express be with you.
 
-  <form action="/quotes" method="POST">
-    <input type="text" placeholder="name" name="name">
-    <input type="text" placeholder="quote" name="quote">
-    <button type="submit">Submit</button>
-  </form>
-  <h2 ng-repeat="q in quotes">
+<!--
+<header class="header" id="header">
+  <div class="container">
+        <h1 class="animated fadeInDown delay-07s">Welcome To Squanch</h1>
+        <ul class="we-create animated fadeInUp delay-1s">
+          <li>We are saucy!</li>
+        </ul>
+          
+    </div>
+</header>
+
+<nav class="main-nav-outer" id="test">
+  <div class="container">
+        <ul class="main-nav">
+          <li><a =>Home</a></li>
+            <li><a >Services</a></li>
+            <li><a >Portfolio</a></li>
+            <li><a >Clients</a></li>
+            <li><a >Team</a></li>
+            <li><a >Contact</a></li>
+        </ul>
+        <a class="res-nav_click"><i class="fa-bars"></i></a>
+    </div>
+</nav>main-nav-end-->
+
+<div class="text-center">
+
+
+<div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
+  <h1> May Node and Express be with you. </h1>
+  <h3 ng-repeat = "q in quotes">
     {{ q.name }} : {{ q.quote }}
-  </h2>
+  </h3>
+  </div>
+
+
+<div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
+<div class="form">
+
+  <form action="/quotes" method="POST" role="form" class="contactForm">
+
+    <div class="form-group">
+    <input type="text" class="form-control input-text" name="name" id="name" placeholder="name" data-rule="minlen:4" data-msg="Please enter a name" />
+    <div class="validation"></div>
+    </div>
+
+    <div class="form-group">
+    <input type="text" class="form-control input-text" name="quote" id="quote" placeholder="quote" data-rule="minlen:4" data-msg="Please enter a quote" />
+    <div class="validation"></div>
+    </div>
+
+    <div class="text-center"><button type="submit" class="input-btn">Submit</button></div>
+  </form>
+  </div>
+  </div>
+
+  </div>
 
 </body>
 
