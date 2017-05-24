@@ -4,4 +4,5 @@ RUN mkdir /squat
 WORKDIR /squat
 ADD package.json /squat/package.json
 RUN npm install
+RUN npm run build
 ADD . /squat
