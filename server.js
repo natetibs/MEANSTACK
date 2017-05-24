@@ -18,11 +18,11 @@ MongoClient.connect('mongodb://localhost:27017/greenBottle', (err, database) => 
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
+  res.sendFile(__dirname + '/UI/index.html')
   // Note: __dirname is directory that contains the JavaScript source code. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
-app.get('/core.js', (req, res) => {
+app.get('/UI/core.js', (req, res) => {
   console.log("requested core.js")
   res.sendFile(__dirname + '/core.js')
 })
