@@ -29,6 +29,7 @@ MongoClient.connect(MONGO_DB, (err, database) => {
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(express.static(__dirname + '/UI'));
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/UI/index.html')
@@ -36,10 +37,12 @@ app.get('/', (req, res) => {
   // Note: __dirname is directory that contains the JavaScript source code. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
+
 app.get('/UI/core.js', (req, res) => {
   console.log("requested core.js")
   res.sendFile(__dirname + '/UI/core.js')
 })
+
 app.get('/api/quotes',function(req,res){
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log(err)
