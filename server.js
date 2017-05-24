@@ -5,14 +5,27 @@ const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const app = express()
 
-var db
+var mongoose = require('mongoose');
 
-MongoClient.connect('mongodb://localhost:27017/greenBottle', (err, database) => {
+var MONGO_DB;
+var DOCKER_DB = process.env.DB_PORT;
+if ( DOCKER_DB ) {
+  MONGO_DB = DOCKER_DB.replace( 'tcp', 'mongodb' ) + '/squat'
+} else {
+  MONGO_DB = process.env.MONGODB;
+}
+var retry = 0;
+//mongoose.connect(MONGO_DB)
+
+
+var db
+//Deprecated - before we used Docker-Compose
+console.log("mongodb address: " + MONGO_DB)
+MongoClient.connect(MONGO_DB, (err, database) => {
   if (err) return console.log(err)
   db = database
-  app.listen(3000, () => {
-    console.log('listening on 3000')
-  })
+
+  app.listen(process.env.PORT || 3000)
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
