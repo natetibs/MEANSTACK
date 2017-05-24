@@ -7,7 +7,7 @@ web:
   build: .
   command: node --harmony server.js
   volumes:
-    - .:/squat
+    - /node_modules/
   ports:
     - "3000:3000"
   links:
