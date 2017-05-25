@@ -4,3 +4,4 @@ UI/.DS_Store
 Dockerfile
 docker-compose.yml
 Dockerfile-old
+Jenkinsfile
