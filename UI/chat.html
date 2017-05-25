@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en", ng-app="scotchTodo">
+<html lang="en", ng-app="squatApp">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, maximum-scale=1">
@@ -37,8 +37,33 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
-<script src="UI/core.js"></script>
+<script src="core.js"></script>
 
-this is an ifr
+<style>
+body {
+    background-color: #ffffff;
+}
+</style>
 
+<body ng-controller="mainController">
+
+  <h3 ng-repeat = "q in quotes">
+    <div ng-switch = "q.name">
+      <div ng-switch-when="squattybot">
+        <div class="from-them">
+          <p>{{q.quote}}</p>
+        </div>
+      </div>
+      <div ng-switch-default>
+        <div class = "from-me">
+          <p>{{q.quote}}</p>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+    </div>
+  </h3>
+
+</body>
 </html>

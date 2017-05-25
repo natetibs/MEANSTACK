@@ -22,6 +22,7 @@ section {
 .from-me {
 	position:relative;
 	padding:10px 20px;
+	margin-left : 100px;
 	color:white;
 	background:#6EBE47;
 	border-radius:25px;
@@ -55,6 +56,7 @@ section {
 .from-them {
 	position:relative;
 	padding:10px 20px;
+	margin-right: 100px;
 	background:#E5E5EA;
 	border-radius:25px;
 	color: black;

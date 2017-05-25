@@ -3,7 +3,7 @@ console.log('May Node be with you')
 const express = require('express')
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const squatty = require('./squatty.js') 
+const squatty = require('./squatty.js')
 const app = express()
 app.use(express.static('UI'))
 var mongoose = require('mongoose');
@@ -41,12 +41,6 @@ app.get('/', (req, res) => {
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
 
-app.get('/UI/core.js', (req, res) => {
-  console.log("requested core.js")
-  res.sendFile(__dirname + '/UI/core.js')
-})
-
-
 app.get('/api/quotes',function(req,res){
   return getQuotes(res) //return res.json(getQuote())
 });
@@ -58,7 +52,7 @@ app.post('/api/quotes', function(req,res){
 	//res.send(req.body);
 	console.log('hello')
   // Get our form values. These rely on the "name" attributes
-  
+
   db.collection('quotes').save(req.body, (err, result) => {
    if (err) return console.log(err)
 

@@ -28,4 +28,3 @@ function mainController($scope, $http) {
     };
 
 };
-
