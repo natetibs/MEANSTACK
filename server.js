@@ -3,8 +3,9 @@ console.log('May Node be with you')
 const express = require('express')
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
-const squatty = require('./squatty.js') 
+const squatty = require('./squatty.js')
 const app = express()
+app.use(express.static('UI'))
 
 var mongoose = require('mongoose');
 
@@ -39,17 +40,12 @@ app.get('/', (req, res) => {
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
 
-app.get('/UI/core.js', (req, res) => {
-  console.log("requested core.js")
-  res.sendFile(__dirname + '/UI/core.js')
-})
-
 app.get('/api/quotes',function(req,res){
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log(err)
       else return res.json(result)
     });
-  
+
 
 
 });

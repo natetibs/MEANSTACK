@@ -73,58 +73,13 @@ body {
 </nav>main-nav-end-->
 
 <div class="text-center">
-<!--
-  <section>
-      <div class="from-me">
-        <p>Hey there! What's up?</p>
-      </div>
-    <div class="clear"></div>
-      <div class="from-them">
-        <p>Checking out iOS7 you know..</p>
-      </div>
-    <div class="clear"></div>
-      <div class="from-me">
-        <p>Check out this bubble!</p>
-      </div>
-    <div class="clear"></div>
-      <div class="from-them">
-        <p>It's pretty cool!</p>
-      </div>
-    <div class="clear"></div>
-      <div class="from-me">
-        <p>Yeah it's pure CSS &amp; HTML</p>
-      </div>
-    <div class="clear"></div>
-      <div class="from-them">
-        <p>Wow that's impressive. But what's even more impressive is that this bubble is really high.</p>
-      </div>
-    </section> -->
-
-
 
 <div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
   <h1> Squat! </h1>
-  <h3 ng-repeat = "q in quotes">
-    <!--var myVar = {{q.quote == "A" | iif : from-me : from-them}}-->
-    <div ng-switch = "q.name">
-      <div ng-switch-when="A">
-        <div class="from-them">
-          <p>{{q.quote}}</p>
-        </div>
-        <br>
-      </div>
-      <div ng-switch-default>
-        <div class = "from-me">
-          <p> {{q.quote}}</p>
-        </div>
-        <br>
-      </div>
-    </div>
-  </h3>
-  </div>
-<div style='position: relative; width: 100%; height: 0px; padding-bottom: 60%;'>
-  <iframe src="chat.html" width="400" height="300"></iframe>
 </div>
+
+<iframe scrolltoid="iframe" src="chat.html" width= "500" height = "300"></iframe>
+
 <div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
 <div class="form">
 
@@ -171,7 +126,15 @@ body {
     wow.init();
   </script>
 
+<script type="text/javascript">
+  $(window).load(function ()
+  {
+    var $contents = $('#iframe').contents();
+    $contents.scrollTop($contents.height());
+  });
+</script>
 
+  </script>>
 <script type="text/javascript">
   $(window).load(function(){
 
