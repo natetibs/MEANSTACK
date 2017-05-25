@@ -5,3 +5,4 @@ Dockerfile
 docker-compose.yml
 Dockerfile-old
 Jenkinsfile
+build.sh
