@@ -50,7 +50,6 @@ app.get('/UI/core.js', (req, res) => {
 app.get('/api/quotes',function(req,res){
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log(err)
-<<<<<<< HEAD
     else return res.json(result)
   });
 
@@ -71,30 +70,13 @@ app.post('/api/quotes', function(req,res){
     	//res.redirect('/')
       res.send("Created "+JSON.stringify(result));
   	})
-  
-=======
-      else return res.json(result)
-    });
-  
-
-
-});
-
-app.post('/quotes', function(req,res){
-
-  db.collection('quotes').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-      console.log(result);
-    console.log('saved to database')
-  })
-  squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
+    squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
     db.collection('quotes').save({name: name, quote: response}, (err, result) => {
       if (err) return console.log(err)
         console.log("response: " + response);
       console.log('saved to database')
-      res.redirect('/')
+      //res.redirect('/')
     })
   })
->>>>>>> 7099ba58591a34540716637fea82988abb952468
 })
 //told you haha

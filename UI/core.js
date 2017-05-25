@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 var squatApp = angular.module('squatApp', []);
-=======
-
-var scotchTodo = angular.module('scotchTodo', []);
->>>>>>> 7099ba58591a34540716637fea82988abb952468
 
 function mainController($scope, $http) {
 
