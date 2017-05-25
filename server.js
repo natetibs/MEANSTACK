@@ -3,6 +3,7 @@ console.log('May Node be with you')
 const express = require('express')
 const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
+const squatty = require('./squatty.js') 
 const app = express()
 
 var mongoose = require('mongoose');
@@ -23,7 +24,7 @@ var db
 console.log("mongodb address: " + MONGO_DB)
 MongoClient.connect(MONGO_DB, (err, database) => {
   if (err) return console.log(err)
-  db = database
+    db = database
 
   app.listen(process.env.PORT || 3000)
 })
@@ -49,6 +50,7 @@ app.get('/UI/core.js', (req, res) => {
 app.get('/api/quotes',function(req,res){
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log(err)
+<<<<<<< HEAD
     else return res.json(result)
   });
 
@@ -70,5 +72,29 @@ app.post('/api/quotes', function(req,res){
       res.send("Created "+JSON.stringify(result));
   	})
   
+=======
+      else return res.json(result)
+    });
+  
+
+
+});
+
+app.post('/quotes', function(req,res){
+
+  db.collection('quotes').save(req.body, (err, result) => {
+    if (err) return console.log(err)
+      console.log(result);
+    console.log('saved to database')
+  })
+  squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
+    db.collection('quotes').save({name: name, quote: response}, (err, result) => {
+      if (err) return console.log(err)
+        console.log("response: " + response);
+      console.log('saved to database')
+      res.redirect('/')
+    })
+  })
+>>>>>>> 7099ba58591a34540716637fea82988abb952468
 })
 //told you haha

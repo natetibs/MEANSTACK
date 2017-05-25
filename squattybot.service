@@ -1,0 +1,13 @@
+[Unit]
+Description=SquattyBot
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run -e TZ=America/Denver --name squattybot squattybot
+ExecStop=/usr/bin/docker stop -t 2 squattybot
+ExecStopPost=/usr/bin/docker rm -f squattybot
+
+[Install]
+WantedBy=default.target

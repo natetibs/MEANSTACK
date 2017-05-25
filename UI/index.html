@@ -15,7 +15,7 @@
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="css/responsive.css" rel="stylesheet" type="text/css">
 <link href="css/animate.css" rel="stylesheet" type="text/css">
-
+<link href="css/messages.css" rel="stylesheet" type="text/css">
 <!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
 
 <script type="text/javascript" src="js/jquery.1.8.3.min.js"></script>
@@ -54,7 +54,7 @@ body {
         <ul class="we-create animated fadeInUp delay-1s">
           <li>We are saucy!</li>
         </ul>
-          
+
     </div>
 </header>
 
@@ -73,16 +73,58 @@ body {
 </nav>main-nav-end-->
 
 <div class="text-center">
+<!--
+  <section>
+      <div class="from-me">
+        <p>Hey there! What's up?</p>
+      </div>
+    <div class="clear"></div>
+      <div class="from-them">
+        <p>Checking out iOS7 you know..</p>
+      </div>
+    <div class="clear"></div>
+      <div class="from-me">
+        <p>Check out this bubble!</p>
+      </div>
+    <div class="clear"></div>
+      <div class="from-them">
+        <p>It's pretty cool!</p>
+      </div>
+    <div class="clear"></div>
+      <div class="from-me">
+        <p>Yeah it's pure CSS &amp; HTML</p>
+      </div>
+    <div class="clear"></div>
+      <div class="from-them">
+        <p>Wow that's impressive. But what's even more impressive is that this bubble is really high.</p>
+      </div>
+    </section> -->
+
 
 
 <div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
-  <h1> May Node and Express be with you. </h1>
+  <h1> Squat! </h1>
   <h3 ng-repeat = "q in quotes">
-    {{ q.name }} : {{ q.quote }}
+    <!--var myVar = {{q.quote == "A" | iif : from-me : from-them}}-->
+    <div ng-switch = "q.name">
+      <div ng-switch-when="A">
+        <div class="from-them">
+          <p>{{q.quote}}</p>
+        </div>
+        <br>
+      </div>
+      <div ng-switch-default>
+        <div class = "from-me">
+          <p> {{q.quote}}</p>
+        </div>
+        <br>
+      </div>
+    </div>
   </h3>
   </div>
-
-
+<div style='position: relative; width: 100%; height: 0px; padding-bottom: 60%;'>
+  <iframe src="chat.html" width="400" height="300"></iframe>
+</div>
 <div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
 <div class="form">
 
@@ -90,12 +132,20 @@ body {
     <form role="form" class="contactForm">
 
     <div class="form-group">
+<<<<<<< HEAD
     <input type="text" class="form-control input-text" id="inputField1" ng-model="formData.name" placeholder="name" data-rule="minlen:4" data-msg="Please enter a name" />
+=======
+    <input type="text" class="form-control input-text" name="name" id="name" placeholder="email" data-rule="minlen:4" data-msg="Please enter a name" />
+>>>>>>> 7099ba58591a34540716637fea82988abb952468
     <div class="validation"></div>
     </div>
 
     <div class="form-group">
+<<<<<<< HEAD
     <input type="text" class="form-control input-text" id="inputField2" ng-model="formData.quote" placeholder="quote" data-rule="minlen:4" data-msg="Please enter a quote" />
+=======
+    <input type="text" class="form-control input-text" name="quote" id="quote" placeholder="command" data-rule="minlen:4" data-msg="Please enter a quote" />
+>>>>>>> 7099ba58591a34540716637fea82988abb952468
     <div class="validation"></div>
     </div>
 
@@ -113,10 +163,10 @@ body {
         $('#test').scrollToFixed();
         $('.res-nav_click').click(function(){
             $('.main-nav').slideToggle();
-            return false    
-            
+            return false
+
         });
-        
+
     });
 </script>
 
@@ -133,10 +183,10 @@ body {
 
 <script type="text/javascript">
   $(window).load(function(){
-    
+
     $('.main-nav li a, .servicelink').bind('click',function(event){
       var $anchor = $(this);
-      
+
       $('html, body').stop().animate({
         scrollTop: $($anchor.attr('href')).offset().top - 102
       }, 1500,'easeInOutExpo');
@@ -146,8 +196,8 @@ body {
         scrollTop: $($anchor.attr('href')).offset().top
       }, 1000);
       */
-      if ($(window).width() < 768 ) { 
-        $('.main-nav').hide(); 
+      if ($(window).width() < 768 ) {
+        $('.main-nav').hide();
       }
       event.preventDefault();
     });
@@ -157,14 +207,14 @@ body {
 <script type="text/javascript">
 
 $(window).load(function(){
-  
-  
+
+
   var $container = $('.portfolioContainer'),
       $body = $('body'),
       colW = 375,
       columns = null;
 
-  
+
   $container.isotope({
     // disable window resizing
     resizable: true,
@@ -172,7 +222,7 @@ $(window).load(function(){
       columnWidth: colW
     }
   });
-  
+
   $(window).smartresize(function(){
     // check if columns has changed
     var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
@@ -183,20 +233,20 @@ $(window).load(function(){
       $container.width( columns * colW )
         .isotope('reLayout');
     }
-    
+
   }).smartresize(); // trigger resize to set container width
   $('.portfolioFilter a').click(function(){
         $('.portfolioFilter .current').removeClass('current');
         $(this).addClass('current');
- 
+
         var selector = $(this).attr('data-filter');
         $container.isotope({
-      
+
             filter: selector,
          });
          return false;
     });
-  
+
 });
 
 </script>
