@@ -1,4 +1,4 @@
 #!/bin/bash
 
-docker build -t artifactory.ecovate.com/readytalk/squattybot:${env.BUILD_NUMBER} .
+docker build -t artifactory.ecovate.com/readytalk/squat:${env.BUILD_NUMBER} .
 
