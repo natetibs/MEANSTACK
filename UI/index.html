@@ -103,7 +103,7 @@ body {
 
 
 <div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
-  <h1> May Node and Express be with you. </h1>
+  <h1> Squat! </h1>
   <h3 ng-repeat = "q in quotes">
     <!--var myVar = {{q.quote == "A" | iif : from-me : from-them}}-->
     <div ng-switch = "q.name">
@@ -131,12 +131,12 @@ body {
   <form action="/quotes" method="POST" role="form" class="contactForm">
 
     <div class="form-group">
-    <input type="text" class="form-control input-text" name="name" id="name" placeholder="name" data-rule="minlen:4" data-msg="Please enter a name" />
+    <input type="text" class="form-control input-text" name="name" id="name" placeholder="email" data-rule="minlen:4" data-msg="Please enter a name" />
     <div class="validation"></div>
     </div>
 
     <div class="form-group">
-    <input type="text" class="form-control input-text" name="quote" id="quote" placeholder="quote" data-rule="minlen:4" data-msg="Please enter a quote" />
+    <input type="text" class="form-control input-text" name="quote" id="quote" placeholder="command" data-rule="minlen:4" data-msg="Please enter a quote" />
     <div class="validation"></div>
     </div>
 
