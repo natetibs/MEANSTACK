@@ -38,6 +38,7 @@ function describeAvailability(availability, timeRange) {
 
 function describeError(e) {
   console.log(e);
+  if (e.message.includes("Server busy")) return "Whoa, server is busy! Please try again later.";
   return `Something went wrong, try again later!`;
 }
 

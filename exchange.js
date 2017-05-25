@@ -189,9 +189,9 @@ function xmlPath(xml, path) {
         break;
       }
     }
-    if(!found) {
+    /*if(!found) {
       throw new Error("couldn't find path element '" + p + "'.");
-    }
+    }*/
   }
   return xml;
 }
@@ -281,6 +281,9 @@ function getItem(attrs) {
   return makeRequest(soapEnvelope(basicHeader(), getItemBody(attrs)))
   .then(parseXml)
   .then(xml => {
+    //console.log(JSON.stringify(xml, null, 2))
+    var busy = xmlPath(xml.root,['s:Body','s:Fault','faultcode']).content
+    if (busy) throw new Error("Server busy")
     const resp = xmlPath(xml.root, ['s:Body', 'm:GetItemResponse', 'm:ResponseMessages', 'm:GetItemResponseMessage']);
     const status = xmlPath(resp, ['m:ResponseCode']).content;
 
@@ -401,6 +404,7 @@ function cancelMeeting(inviteeEmails, timeRange) {
           return makeRequest(soapEnvelope(basicHeader(), cancelCalendarItemBody(m.attrs)))
           .then(parseXml)
           .then(xml => {
+            //console.log(xml)
             const resp = xmlPath(xml.root, ['s:Body', 'm:CreateItemResponse', 'm:ResponseMessages', 'm:CreateItemResponseMessage']);
             const status = xmlPath(resp, ['m:ResponseCode']).content;
 

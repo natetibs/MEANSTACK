@@ -6,7 +6,10 @@ const MongoClient = require('mongodb').MongoClient
 const squatty = require('./squatty.js')
 const app = express()
 app.use(express.static('UI'))
+<<<<<<< HEAD
 
+=======
+>>>>>>> 88cb26f42159af66899ce392b4516d41e45442a0
 var mongoose = require('mongoose');
 
 var MONGO_DB;
@@ -31,6 +34,8 @@ MongoClient.connect(MONGO_DB, (err, database) => {
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(express.static(__dirname + '/UI'));
 
 app.get('/', (req, res) => {
@@ -40,30 +45,56 @@ app.get('/', (req, res) => {
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
 
+<<<<<<< HEAD
 app.get('/api/quotes',function(req,res){
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log(err)
       else return res.json(result)
     });
 
+=======
+app.get('/UI/core.js', (req, res) => {
+  console.log("requested core.js")
+  res.sendFile(__dirname + '/UI/core.js')
+})
+>>>>>>> 88cb26f42159af66899ce392b4516d41e45442a0
 
 
+app.get('/api/quotes',function(req,res){
+  return getQuotes(res) //return res.json(getQuote())
 });
 
-app.post('/quotes', function(req,res){
+app.post('/api/quotes', function(req,res){
 
+	console.log('name: ' + JSON.stringify(req.body.name));
+  console.log('quo: ' + JSON.stringify(req.body.quote));
+	//res.send(req.body);
+	console.log('hello')
+  // Get our form values. These rely on the "name" attributes
+  
   db.collection('quotes').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-      console.log(result);
-    console.log('saved to database')
-  })
-  squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
-    db.collection('quotes').save({name: name, quote: response}, (err, result) => {
-      if (err) return console.log(err)
-        console.log("response: " + response);
-      console.log('saved to database')
-      res.redirect('/')
-    })
+   if (err) return console.log(err)
+
+     console.log('saved to database 0')
+    	//res.redirect('/')
+      squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
+
+        db.collection('quotes').save({name: name, quote: response}, (err, result) => {
+          if (err) return console.log(err)
+            console.log("response: " + response);
+
+          console.log('saved to database')
+          return getQuotes(res);
+      //res.redirect('/')
+        })
+      })
   })
 })
+
+function getQuotes(res){
+  db.collection('quotes').find().toArray((err, result) => {
+    if (err) return console.log(err)
+      else return res.json(result)
+    });
+};
 //told you haha

@@ -125,3 +125,5 @@ rtm.on(RTM_EVENTS.MESSAGE, function (message) {
 //     // optionally, you can supply a callback to execute once the message has been sent
 //   });
 // });
+
+module.exports = {rtm}
