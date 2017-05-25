@@ -5,7 +5,7 @@ const intent = require('./intent.js');
 const rooms = require('./rooms.js');
 const output = require('./output.js');
 const exchange = require('./exchange.js');
-
+const rtm = require('./bot.js').rtm
 function getPossibleEmails(email) {
   let list = [email];
   let e2 = email.replace("@readytalk.com", "@foxden.io");
@@ -24,6 +24,7 @@ function callSquatty(user, text, callback) {
 		callback("squattybot",response);
 	}
 	function getEmail(user) {
+		console.log("converting " + user)
 		if (user.toLowerCase().endsWith("@readytalk.com")) return user;
 		if (user.toLowerCase().endsWith("@foxden.io")) return user.replace("@foxden.io","@readytalk.com")
 		if (!user.includes("@")) return user + "@readytalk.com"
@@ -35,6 +36,8 @@ function callSquatty(user, text, callback) {
 		return;
 	}
 	user = getEmail(user);
+	let theRooms = rooms.parseRooms(text);
+  	let userInfo = rtm.dataStore.getUserById(user);
 	let theIntent = intent.parseIntent(new Date(), text);
 
 	if(theIntent.name == 'help') {
