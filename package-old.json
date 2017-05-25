@@ -1,19 +1,15 @@
 {
-  "name": "squatty-bot",
+  "name": "nathan.tibbetts",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
+  "main": "server.js",
+  "scripts": { 
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@slack/client": "^3.3.0",
-    "request": "^2.73.0",
-    "uuid": "^2.0.2",
-    "xml-parser": "^1.2.1",
-       "body-parser": "^1.17.2",
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "mongodb": "^2.2.27",
     "mongoose": "^4.10.2"
