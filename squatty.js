@@ -16,6 +16,8 @@ function getPossibleEmails(email) {
 }
 
 function callSquatty(user, text, callback) {
+	text = text || "";
+	user = user || "";
 	function reply(response) {
 		console.log("from " + user + ": " + text);
 		console.log("to " + user + ": " + response);
