@@ -15,7 +15,6 @@
 <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
 <link href="css/responsive.css" rel="stylesheet" type="text/css">
 <link href="css/animate.css" rel="stylesheet" type="text/css">
-
 <link href="css/messages.css" rel="stylesheet" type="text/css">
 <!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
 
@@ -55,7 +54,6 @@ body {
         <ul class="we-create animated fadeInUp delay-1s">
           <li>We are saucy!</li>
         </ul>
-          
 
     </div>
 </header>
@@ -107,7 +105,6 @@ body {
 <div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
   <h1> May Node and Express be with you. </h1>
   <h3 ng-repeat = "q in quotes">
-    {{ q.name }} : {{ q.quote }}
     <!--var myVar = {{q.quote == "A" | iif : from-me : from-them}}-->
     <div ng-switch = "q.name">
       <div ng-switch-when="A">
@@ -125,8 +122,6 @@ body {
     </div>
   </h3>
   </div>
-
-
 <div style='position: relative; width: 100%; height: 0px; padding-bottom: 60%;'>
   <iframe src="chat.html" width="400" height="300"></iframe>
 </div>
@@ -159,12 +154,9 @@ body {
         $('#test').scrollToFixed();
         $('.res-nav_click').click(function(){
             $('.main-nav').slideToggle();
-            return false    
-            
             return false
 
         });
-        
 
     });
 </script>
@@ -182,11 +174,9 @@ body {
 
 <script type="text/javascript">
   $(window).load(function(){
-    
 
     $('.main-nav li a, .servicelink').bind('click',function(event){
       var $anchor = $(this);
-      
 
       $('html, body').stop().animate({
         scrollTop: $($anchor.attr('href')).offset().top - 102
@@ -197,8 +187,6 @@ body {
         scrollTop: $($anchor.attr('href')).offset().top
       }, 1000);
       */
-      if ($(window).width() < 768 ) { 
-        $('.main-nav').hide(); 
       if ($(window).width() < 768 ) {
         $('.main-nav').hide();
       }
@@ -210,8 +198,6 @@ body {
 <script type="text/javascript">
 
 $(window).load(function(){
-  
-  
 
 
   var $container = $('.portfolioContainer'),
@@ -219,7 +205,6 @@ $(window).load(function(){
       colW = 375,
       columns = null;
 
-  
 
   $container.isotope({
     // disable window resizing
@@ -228,7 +213,6 @@ $(window).load(function(){
       columnWidth: colW
     }
   });
-  
 
   $(window).smartresize(function(){
     // check if columns has changed
@@ -240,23 +224,19 @@ $(window).load(function(){
       $container.width( columns * colW )
         .isotope('reLayout');
     }
-    
 
   }).smartresize(); // trigger resize to set container width
   $('.portfolioFilter a').click(function(){
         $('.portfolioFilter .current').removeClass('current');
         $(this).addClass('current');
- 
 
         var selector = $(this).attr('data-filter');
         $container.isotope({
-      
 
             filter: selector,
          });
          return false;
     });
-  
 
 });
 
