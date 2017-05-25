@@ -30,6 +30,8 @@ MongoClient.connect(MONGO_DB, (err, database) => {
 })
 
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json());                                     // parse application/json
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(express.static(__dirname + '/UI'));
 
 app.get('/', (req, res) => {
@@ -44,29 +46,36 @@ app.get('/UI/core.js', (req, res) => {
   res.sendFile(__dirname + '/UI/core.js')
 })
 
+
 app.get('/api/quotes',function(req,res){
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log(err)
-      else return res.json(result)
-    });
-  
-
+    else return res.json(result)
+  });
 
 });
 
-app.post('/quotes', function(req,res){
+app.post('/api/quotes', function(req,res){
 
-  db.collection('quotes').save(req.body, (err, result) => {
-    if (err) return console.log(err)
-      console.log(result);
-    console.log('saved to database')
-  })
-  squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
+	console.log('name: ' + JSON.stringify(req.body.name));
+  console.log('quo: ' + JSON.stringify(req.body.quote));
+	//res.send(req.body);
+	console.log('hello')
+  // Get our form values. These rely on the "name" attributes
+  
+  	db.collection('quotes').save(req.body, (err, result) => {
+    	if (err) return console.log(err)
+
+    	console.log('saved to database 0')
+    	//res.redirect('/')
+      res.send("Created "+JSON.stringify(result));
+  	})
+    squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
     db.collection('quotes').save({name: name, quote: response}, (err, result) => {
       if (err) return console.log(err)
         console.log("response: " + response);
       console.log('saved to database')
-      res.redirect('/')
+      //res.redirect('/')
     })
   })
 })
