@@ -48,11 +48,7 @@ app.get('/UI/core.js', (req, res) => {
 
 
 app.get('/api/quotes',function(req,res){
-  db.collection('quotes').find().toArray((err, result) => {
-    if (err) return console.log(err)
-    else return res.json(result)
-  });
-
+  return getQuotes(res) //return res.json(getQuote())
 });
 
 app.post('/api/quotes', function(req,res){
@@ -63,20 +59,29 @@ app.post('/api/quotes', function(req,res){
 	console.log('hello')
   // Get our form values. These rely on the "name" attributes
   
-  	db.collection('quotes').save(req.body, (err, result) => {
-    	if (err) return console.log(err)
+  db.collection('quotes').save(req.body, (err, result) => {
+   if (err) return console.log(err)
 
-    	console.log('saved to database 0')
+     console.log('saved to database 0')
     	//res.redirect('/')
-      res.send("Created "+JSON.stringify(result));
-  	})
-    squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
-    db.collection('quotes').save({name: name, quote: response}, (err, result) => {
-      if (err) return console.log(err)
-        console.log("response: " + response);
-      console.log('saved to database')
+      squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
+
+        db.collection('quotes').save({name: name, quote: response}, (err, result) => {
+          if (err) return console.log(err)
+            console.log("response: " + response);
+
+          console.log('saved to database')
+          return getQuotes(res);
       //res.redirect('/')
-    })
+        })
+      })
   })
 })
+
+function getQuotes(res){
+  db.collection('quotes').find().toArray((err, result) => {
+    if (err) return console.log(err)
+      else return res.json(result)
+    });
+};
 //told you haha

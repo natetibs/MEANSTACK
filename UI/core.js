@@ -8,7 +8,8 @@ function mainController($scope, $http) {
     $http.get('/api/quotes')
         .success(function(data) {
             $scope.quotes = data;
-            console.log(data);
+            console.log("Fu")
+            console.log("DATA IS: " +data);
         })
         .error(function(data) {
             console.log('Error: ' + data);
