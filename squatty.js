@@ -21,7 +21,7 @@ function callSquatty(user, text, callback) {
 	function reply(response) {
 		console.log("from " + user + ": " + text);
 		console.log("to " + user + ": " + response);
-		callback("squattybot",response);
+		callback("squattybot",user,response);
 	}
 	function getEmail(user) {
 		console.log("converting " + user)

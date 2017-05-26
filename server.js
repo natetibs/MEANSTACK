@@ -58,9 +58,9 @@ app.post('/api/quotes', function(req,res){
 
      console.log('saved to database 0')
     	//res.redirect('/')
-      squatty.callSquatty(req.body.name,req.body.quote, (name,response) => {
+      squatty.callSquatty(req.body.name,req.body.quote, (name,to,response) => {
 
-        db.collection('quotes').save({name: name, quote: response}, (err, result) => {
+        db.collection('quotes').save({name: name, to: to, quote: response}, (err, result) => {
           if (err) return console.log(err)
             console.log("response: " + response);
 

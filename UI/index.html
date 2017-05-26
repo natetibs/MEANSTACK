@@ -78,7 +78,7 @@ body {
   <h1> Squat! </h1>
 </div>
 
-<div class = "messages col-md-8 col-md-offset-2 centered">
+<div messages-div id = "messages" class = "messages col-md-8 col-md-offset-2 centered">
   <h3 ng-repeat = "q in quotes">
     <div ng-switch = "q.name">
       <div ng-switch-when="squattybot">
@@ -108,15 +108,16 @@ body {
     <form role="form" class="contactForm">
 
     <div class="form-group">
-    <input type="text" class="form-control input-text" id="inputField1" ng-model="formData.name" placeholder="name" data-rule="minlen:4" data-msg="Please enter a name" />
+    <input type="text" class="form-control input-text" id="inputField1" ng-model="formData.name" placeholder="email" data-rule="minlen:4" data-msg="Please enter a name" />
     <div class="validation"></div>
     </div>
 
     <div class="form-group">
 
-    <input type="text" class="form-control input-text" id="inputField2" ng-model="formData.quote" placeholder="quote" data-rule="minlen:4" data-msg="Please enter a quote" />
+    <input type="text" class="form-control input-text" id="inputField2" ng-model="formData.quote" placeholder="command" data-rule="minlen:4" data-msg="Please enter a quote" />
     <div class="validation"></div>
     </div>
+    <input type="text" class="hidden" id="inputField3" ng-model="formData.to" value="squattybot" />
 
     <div class="text-center"><button type="submit" class="input-btn" ng-click="sendData()">Submit</button></div>
   </form>
@@ -127,17 +128,6 @@ body {
 
 </body>
 
-<script type="text/javascript">
-    $(document).ready(function(e) {
-        $('#test').scrollToFixed();
-        $('.res-nav_click').click(function(){
-            $('.main-nav').slideToggle();
-            return false
-
-        });
-
-    });
-</script>
 
   <script>
     wow = new WOW(
@@ -184,15 +174,8 @@ $(window).load(function(){
       columns = null;
 
 
-  $container.isotope({
-    // disable window resizing
-    resizable: true,
-    masonry: {
-      columnWidth: colW
-    }
-  });
 
-  $(window).smartresize(function(){
+  /*$(window).smartresize(function(){
     // check if columns has changed
     var currentColumns = Math.floor( ( $body.width() -30 ) / colW );
     if ( currentColumns !== columns ) {
@@ -214,7 +197,7 @@ $(window).load(function(){
             filter: selector,
          });
          return false;
-    });
+    });*/
 
 });
 
