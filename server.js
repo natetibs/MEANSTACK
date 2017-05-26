@@ -6,10 +6,7 @@ const MongoClient = require('mongodb').MongoClient
 const squatty = require('./squatty.js')
 const app = express()
 app.use(express.static('UI'))
-<<<<<<< HEAD
 
-=======
->>>>>>> c212d7ff7f6f9c0df2e7045f86599f736b70df8c
 var mongoose = require('mongoose');
 
 var MONGO_DB;
