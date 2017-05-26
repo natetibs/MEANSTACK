@@ -20,6 +20,7 @@ function mainController($scope, $http) {
             .success(function(data) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another
                 $scope.quotes = data;
+                $(".messages").scrollTop = $(".messages").scrollHeight
                 console.log(data);
             })
             .error(function(data) {
@@ -28,4 +29,3 @@ function mainController($scope, $http) {
     };
 
 };
-

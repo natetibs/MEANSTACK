@@ -6,7 +6,10 @@ const MongoClient = require('mongodb').MongoClient
 const squatty = require('./squatty.js')
 const app = express()
 app.use(express.static('UI'))
+<<<<<<< HEAD
 
+=======
+>>>>>>> c212d7ff7f6f9c0df2e7045f86599f736b70df8c
 var mongoose = require('mongoose');
 
 var MONGO_DB;
@@ -42,15 +45,6 @@ app.get('/', (req, res) => {
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
 
-
-app.get('/api/quotes',function(req,res){
-  db.collection('quotes').find().toArray((err, result) => {
-    if (err) return console.log(err)
-      else return res.json(result)
-    });
-});
-
-
 app.get('/api/quotes',function(req,res){
   return getQuotes(res) //return res.json(getQuote())
 });
@@ -62,7 +56,7 @@ app.post('/api/quotes', function(req,res){
 	//res.send(req.body);
 	console.log('hello')
   // Get our form values. These rely on the "name" attributes
-  
+
   db.collection('quotes').save(req.body, (err, result) => {
    if (err) return console.log(err)
 
