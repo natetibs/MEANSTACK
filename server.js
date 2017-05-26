@@ -6,10 +6,7 @@ const MongoClient = require('mongodb').MongoClient
 const squatty = require('./squatty.js')
 const app = express()
 app.use(express.static('UI'))
-<<<<<<< HEAD
 
-=======
->>>>>>> 88cb26f42159af66899ce392b4516d41e45442a0
 var mongoose = require('mongoose');
 
 var MONGO_DB;
@@ -45,19 +42,13 @@ app.get('/', (req, res) => {
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
 })
 
-<<<<<<< HEAD
+
 app.get('/api/quotes',function(req,res){
   db.collection('quotes').find().toArray((err, result) => {
     if (err) return console.log(err)
       else return res.json(result)
     });
-
-=======
-app.get('/UI/core.js', (req, res) => {
-  console.log("requested core.js")
-  res.sendFile(__dirname + '/UI/core.js')
-})
->>>>>>> 88cb26f42159af66899ce392b4516d41e45442a0
+});
 
 
 app.get('/api/quotes',function(req,res){
