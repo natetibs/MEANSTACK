@@ -36,7 +36,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(express.static(__dirname + '/UI'));
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/UI/index.html')
+  res.sendFile(__dirname + '/UI/landing.html')
   console.log("req index")
   // Note: __dirname is directory that contains the JavaScript source code. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.
