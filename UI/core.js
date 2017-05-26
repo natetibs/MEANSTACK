@@ -25,6 +25,12 @@ function mainController ($scope, $http, $timeout, $routeParams) {
       return query_string;
     }();
     $scope.formData = {name:QueryString.name,to:'squattybot'}
+    if (QueryString.name) $timeout( () => {
+        document.getElementById('inputField2').focus();
+    })
+        else $timeout( () => {
+        document.getElementById('inputField1').focus();
+    })
     // when landing on the page, get all and show them
     $http.get('/api/quotes')
         .success(function(data) {
@@ -83,9 +89,26 @@ function mainController ($scope, $http, $timeout, $routeParams) {
         $timeout(
                 () => {
                     var div = document.getElementById('messages')
-                    div.scrollTop = div.scrollHeight
-                }
-            )
+                    if (div) {
+                        div.scrollTop = div.scrollHeight
+                        let list =  document.getElementsByClassName("from-them");
+                        list[list.length - 1].animate([
+                                { opacity: 0, transform: 'translateY(20px)' }, 
+                              { opacity: 1, transform: 'translateY(0)' }
+                        ],
+                        {
+                            duration: 500
+                        })
+                        list = document.getElementsByClassName("from-me");
+                        list[list.length - 1].animate([
+                                { opacity: 0, transform: 'translateY(20px)' }, 
+                              { opacity: 1, transform: 'translateY(0)' }
+                        ],
+                        {
+                            duration: 500
+                        })
+                    }
+                });
     }, true)
-};
+}
 squatApp.controller("mainController", mainController);

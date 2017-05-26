@@ -54,6 +54,7 @@ section {
 	}
 }
 .from-them {
+	opacity: 1;
 	position:relative;
 	padding:10px 20px;
 	margin-right: 100px;

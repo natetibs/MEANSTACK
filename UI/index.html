@@ -25,7 +25,6 @@
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
 <script type="text/javascript" src="js/wow.js"></script>
 <script type="text/javascript" src="js/classie.js"></script>
-<script src="contactform/contactform.js"></script>
 
 <!-- =======================================================
     Theme Name: Knight
@@ -50,17 +49,19 @@ body {
 
 <div class="text-center">
 
-<div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
+<div class="col-md-8 col-md-offset-2 centered wow delay-05s">
 
 </div>
 
-<img src="squat.png" class="center hue-rotate"/>
+<img src="squat.png" class="center png-filter"/>
 
+<h3><em>Enter your ReadyTalk username, and message Squattybot to squat in a room somewhere nearby!</em></h3>
+<br>
 
-<div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
+<div class="col-md-8 col-md-offset-2 centered wow delay-05s">
 <div class="form">
 
-  <div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
+  <div class="col-md-8 col-md-offset-2 centered wow delay-05s">
 <div class="form">
 
   <!--form action="/quotes" method="POST" role="form" class="contactForm"-->
@@ -101,7 +102,10 @@ body {
 
 <script type="text/javascript">
   $(window).load(function(){
-
+    $( "img" ).each( function() {
+        var $img = $( this );
+        $img.width( $img.width() * .8 );
+    })
     $('.main-nav li a, .servicelink').bind('click',function(event){
       var $anchor = $(this);
 

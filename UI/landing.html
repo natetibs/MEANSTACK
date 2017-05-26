@@ -74,15 +74,15 @@ body {
 
 <div class="text-center">
 
-<div class="col-md-8 col-md-offset-2 centered wow fadeInUp delay-05s">
-  <h1> Squat! </h1>
+<div class="col-md-8 col-md-offset-2 centered wow delay-05s">
+  <h1> <a href="/">Squat</a> </h1>
 </div>
 
 <div messages-div id = "messages" class = "messages col-md-8 col-md-offset-2 centered">
   <h3 ng-repeat = "q in quotes">
     <div ng-switch = "q.name">
       <div ng-switch-when="squattybot">
-        <div class="from-them">
+        <div class="from-them fadeInUp">
           <p>{{q.quote}}</p>
         </div>
       </div>
