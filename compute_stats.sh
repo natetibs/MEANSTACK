@@ -18,5 +18,5 @@ cat log.txt | \
   grep -iE '[a-z]+\.[a-z]+@readytalk\.com' | \
   grep -v 'joshua\.warner' | \
   grep -E 'confirm|booked' | \
-  grep -oE 'lawrence|arapahoe|curtis|champa|stout|california|welton|nerdlounge|dartroom|larimer|market|wynkoop|wazee|blake|wewatta|execboard|enclave1|enclave2|delgany|nerd\s*lounge|executive(\s*board(\s*room)?)?|dart(\s*room)?|enclave\s*(1|one)|enclave\s*(2|two)' | \
+  grep -oE 'larimer|market|wynkoop|wazee|blake|wewatta|execboard|enclave1|enclave2|delgany|nerd\s*lounge|executive(\s*board(\s*room)?)?|dart(\s*room)?|enclave\s*(1|one)|enclave\s*(2|two)' | \
   sort| uniq -c > room_stats.txt

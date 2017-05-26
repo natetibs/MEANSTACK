@@ -46,7 +46,7 @@ for(let room of rooms.getAllRooms()) {
 
 let now = new Date('2016-07-19T21:27:02.923Z');
 let timeRange = {start: new Date('2016-07-19T21:30:00.000Z'), end: new Date('2016-07-19T22:30:00.000Z')};
-let defaultRooms = ["lawrence","arapahoe","curtis","champa","stout","california","welton"];
+let defaultRooms = ["larimer","market","wynkoop","wazee","blake","wewatta"];
 
 function checkIntentTest([input, output]) {
   checkJsonEqual(intent.parseIntent(now, input), output, input)
@@ -74,8 +74,8 @@ function checkIntentTest([input, output]) {
   ['help', {name: 'help'}],
   ['available', {name: 'available', timeRange, rooms: defaultRooms}],
   ['rooms', {name: 'list'}],
-  ['rooms lawrence', {name: 'schedule', timeRange, rooms: ['lawrence'] }],
-  ['stout', {name: 'schedule', timeRange, rooms: ['stout']}],
+  ['rooms blake', {name: 'schedule', timeRange, rooms: ['blake'] }],
+  ['wewatta', {name: 'schedule', timeRange, rooms: ['wewatta']}],
   ['executive for 2hr',
     {
       name: 'schedule',
@@ -86,14 +86,14 @@ function checkIntentTest([input, output]) {
       rooms: ['execboard']
     }
   ],
-  ['lawrence for 1.5 hours',
+  ['blake for 1.5 hours',
     {
       name: 'schedule',
       timeRange: {
         start:timeRange.start,
         end: new Date(timeRange.start.getTime() + 1.5*60*60*1000)
       },
-      rooms: ['lawrence']
+      rooms: ['blake']
     }
   ]
 ].forEach(checkIntentTest);
@@ -102,12 +102,10 @@ function check(input, fn, output) {
   checkJsonEqual(fn(input), output, input);
 }
 
-check(['lawrence', 'champa'], rooms.getNearbyRooms, [
-  ["lawrence"],
-  ["champa"],
-  ["arapahoe"],
-  ["curtis", "stout"],
-  ["california", "welton"]
+check(['larimer', 'market'], rooms.getNearbyRooms, [
+  ['larimer'],
+  ['market'],
+  ['wynkoop', 'wazee', 'blake','wewatta']
 ]);
 
 function checkAvailability(timeRange, events, output) {

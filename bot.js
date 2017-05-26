@@ -54,10 +54,10 @@ rtm.on(RTM_EVENTS.MESSAGE, function (message) {
     let theIntent = intent.parseIntent(new Date(), text);
 
     if(theIntent.name == 'help') {
-      reply(`Try "@squattybot: book Lawrence".\n` +
+      reply(`Try "@squattybot: book Wynkoop".\n` +
         `If you ask for an unavailable room, I'll try to find you an open one nearby.\n` +
         `If you don't need the room I scheduled for you, you can always use "@squattybot: cancel".\n` +
-        `You can also specify a time, like "@squattybot: champa until 4" or "@squattybot: welton for 8 hours".\n` +
+        `You can also specify a time, like "@squattybot: Blake until 4" or "@squattybot: wazee for 8 hours".\n` +
         `Ask for the list of rooms I know about with "@squattybot: list".`);
       return;
     }
@@ -114,7 +114,7 @@ rtm.on(RTM_EVENTS.MESSAGE, function (message) {
       return;
     }
 
-    reply(`I couldn't figure out what room you're referring to. Try "@squattybot: book Lawrence".  I also respond to "help", "list", and "available".`);
+    reply(`I couldn't figure out what room you're referring to. Try "@squattybot: book Wynkoop".  I also respond to "help", "list", and "available".`);
   }
 });
 //

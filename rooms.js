@@ -1,9 +1,4 @@
 let roomNearness = {
-  seventh: {
-    general: [['lawrence', 'arapahoe'], ['curtis', 'champa', 'stout'], ['california', 'welton']],
-    nerd: 'nerdlounge',
-    small: 'dartroom',
-  },
   sixth: {
     general: [['larimer', 'market'], ['wynkoop', 'wazee', 'blake'], ['wewatta']],
     large: 'execboard',
@@ -14,7 +9,6 @@ let roomNearness = {
 
 let roomGroups = [
   [['6th', 'sixth'], roomNearness.sixth.general],
-  [['7th', 'seventh'], roomNearness.seventh.general],
 ];
 
 function findStrings(obj) {
@@ -176,7 +170,7 @@ function getDisplayName(room) {
   throw new Error("unknown room: " + room);
 }
 
-let defaultRooms = findStrings(roomNearness.seventh.general);
+let defaultRooms = findStrings(roomNearness.sixth.general);
 
 function getDefaultRooms() {
   return defaultRooms;
