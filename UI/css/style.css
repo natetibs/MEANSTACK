@@ -5,6 +5,8 @@
     Author URL: https://bootstrapmade.com
 */
 
+.hue-rotate {-webkit-filter: hue-rotate(90deg); filter: hue-rotate(90deg);}
+
 /* CSS Document */
 
 /* Float Elements
