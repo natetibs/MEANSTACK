@@ -41,10 +41,10 @@ function callSquatty(user, text, callback) {
 	let theIntent = intent.parseIntent(new Date(), text);
 
 	if(theIntent.name == 'help') {
-		reply(`Try "book Lawrence".\n` +
+		reply(`Try "book Wynkoop".\n` +
 			`If you ask for an unavailable room, I'll try to find you an open one nearby.\n` +
 			`If you don't need the room I scheduled for you, you can always use "cancel".\n` +
-			`You can also specify a time, like "champa until 4" or "welton for 8 hours".\n` +
+			`You can also specify a time, like "wazee until 4" or "blake for 8 hours".\n` +
 			`Ask for the list of rooms I know about with "list".`);
 		return;
 	}
@@ -101,6 +101,6 @@ function callSquatty(user, text, callback) {
 		return;
 	}
 
-	reply(`I couldn't figure out what room you're referring to. Try "book Lawrence".  I also respond to "help", "list", and "available".`);
+	reply(`I couldn't figure out what room you're referring to. Try "book Wynkoop".  I also respond to "help", "list", and "available".`);
 }
 module.exports = {callSquatty};
